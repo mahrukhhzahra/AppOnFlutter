@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:take2/Home_Page.dart';
+import 'package:take2/Pages/home_page.dart';
+import 'package:take2/Pages/login_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  //const MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-      home: HomePage(),
+      //home: HomePage(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Colors.blue,
+      ),
+
+      initialRoute: "/home",
+      
+      routes: {
+        "/" : (context) => LoginPage(),
+        "/home" : (context) => HomePage(),
+        "/login" : (context) => LoginPage()
+      },
     );
-  }
+  } 
 }
 
 
